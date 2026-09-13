@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #080b12;
+    --panel: #101622;
+    --screen: #070a0f;
+    --text: #f4f7ff;
+    --muted: #667085;
+    --cyan: #47f5d0;
+    --purple: #a78bfa;
+    --orange: #ff9f43;
+    --button: #171e2c;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    font-family: "Space Mono", monospace;
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at 15% 20%, #18333a 0, transparent 28%),
+        radial-gradient(circle at 85% 80%, #291b42 0, transparent 30%),
+        var(--background);
+}
+
+/* Main calculator */
+
+.calculator {
+    width: min(410px, 100%);
+    padding: 20px;
+    border: 1px solid #273143;
+    border-radius: 28px;
+    background: rgba(16, 22, 34, 0.92);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+}
+
+/* Top section */
+
+.calculator-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 5px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.brand {
+    font-weight: 700;
+}
+
+.brand span {
+    color: var(--cyan);
+}
+
+.status {
+    color: var(--cyan);
+    font-size: 9px;
+}
+
+/* Display */
+
+.display {
+    min-height: 125px;
+    padding: 20px;
+    margin-bottom: 18px;
+    border: 1px solid #222b3b;
+    border-radius: 20px;
+    background: var(--screen);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+#previous-display {
+    min-height: 22px;
+    width: 100%;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+#current-display {
+    width: 100%;
+    margin-top: 5px;
+    color: var(--cyan);
+    font-size: clamp(28px, 8vw, 42px);
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+    text-shadow: 0 0 18px rgba(71, 245, 208, 0.3);
+}
+
+/* CSS Grid calculator layout */
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    min-height: 62px;
+    border: 1px solid #263044;
+    border-radius: 16px;
+    background: var(--button);
+    color: var(--text);
+    font: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.12s ease,
+        background 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+button:hover {
+    background: #202a3c;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.08);
+}
+
+button:active {
+    transform: scale(0.93);
+}
+
+/* Special buttons */
+
+.function {
+    color: var(--orange);
+}
+
+.operator {
+    color: var(--purple);
+    background: #17182a;
+}
+
+.equals {
+    color: #07100e;
+    background: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 22px rgba(71, 245, 208, 0.2);
+}
+
+.equals:hover {
+    background: #6df9dd;
+}
+
+.zero {
+    grid-column: span 2;
+}
+
+/* History */
+
+.history {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid #222b3b;
+}
+
+.history-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+#clear-history {
+    min-height: auto;
+    padding: 4px 8px;
+    border: none;
+    background: transparent;
+    color: var(--purple);
+    font-size: 9px;
+}
+
+#clear-history:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+#history-list {
+    max-height: 105px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+#history-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 2px;
+    border-bottom: 1px dashed #202838;
+    color: #b8c0cf;
+    font-size: 11px;
+}
+
+#history-list li strong {
+    color: var(--cyan);
+}
+
+/* Small screens */
+
+@media (max-width: 400px) {
+    .calculator {
+        padding: 15px;
+    }
+
+    button {
+        min-height: 57px;
+    }
+}
