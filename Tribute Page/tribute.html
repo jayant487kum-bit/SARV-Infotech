@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Srinivasa Ramanujan | A Mind Beyond Numbers</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f1e5;
+            color: #17233c;
+            line-height: 1.7;
+        }
+
+        /* ---------------- NAVIGATION ---------------- */
+
+        nav {
+            background: #17233c;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: #e7b65a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e7b65a;
+        }
+
+        /* ---------------- HERO ---------------- */
+
+        .hero {
+            min-height: 620px;
+            background:
+                radial-gradient(circle at 85% 20%, #30456e 0, transparent 25%),
+                radial-gradient(circle at 10% 90%, #5a3c32 0, transparent 25%),
+                #17233c;
+
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 70px 9%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "π   ∞   Σ   √   ∫";
+            position: absolute;
+            top: 60px;
+            right: -30px;
+            font-family: 'Space Mono', monospace;
+            font-size: 65px;
+            color: rgba(255,255,255,0.05);
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            width: 58%;
+            z-index: 2;
+        }
+
+        .small-title {
+            font-family: 'Space Mono', monospace;
+            color: #e7b65a;
+            letter-spacing: 3px;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(55px, 8vw, 100px);
+            line-height: 0.95;
+            margin: 18px 0;
+        }
+
+        .hero h1 span {
+            color: #e7b65a;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: #d7dce6;
+            font-size: 17px;
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 9%;
+            bottom: 0;
+            width: 330px;
+            height: 450px;
+            background: #e7b65a;
+            padding: 12px 12px 0;
+            transform: rotate(4deg);
+            box-shadow: 20px 20px 0 #b87d38;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* ---------------- INTRO ---------------- */
+
+        .intro {
+            padding: 100px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .intro-title {
+            position: relative;
+        }
+
+        .intro-title .number {
+            font-family: 'Space Mono', monospace;
+            font-size: 100px;
+            color: #e7b65a;
+            opacity: 0.7;
+        }
+
+        .intro-title h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 55px;
+            line-height: 1;
+            margin-top: -35px;
+        }
+
+        .intro-text {
+            border-left: 4px solid #b87d38;
+            padding-left: 30px;
+        }
+
+        .intro-text p {
+            margin-bottom: 20px;
+        }
+
+        /* ---------------- QUALITY SECTION ---------------- */
+
+        .qualities-section {
+            background: #e9e1d2;
+            padding: 90px 10%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: #b87d38;
+            letter-spacing: 3px;
+        }
+
+        .section-heading h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 50px;
+            margin-top: 8px;
+        }
+
+        .qualities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .quality-card {
+            background: #fffaf0;
+            padding: 35px 28px;
+            min-height: 230px;
+            border-top: 5px solid #17233c;
+            transition: 0.3s ease;
+        }
+
+        .quality-card:nth-child(even) {
+            border-top-color: #b87d38;
+        }
+
+        .quality-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0 #cdbb9c;
+        }
+
+        .quality-number {
+            font-family: 'Space Mono', monospace;
+            color: #b87d38;
+            font-size: 14px;
+        }
+
+        .quality-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 27px;
+            margin: 12px 0;
+        }
+
+        /* ---------------- MATHEMATICS QUOTE ---------------- */
+
+        .math-banner {
+            padding: 90px 10%;
+            background: #b87d38;
+            color: white;
+            text-align: center;
+        }
+
+        .math-banner .equation {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(25px, 5vw, 55px);
+            margin-bottom: 25px;
+        }
+
+        .math-banner p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+        }
+
+        /* ---------------- TIMELINE ---------------- */
+
+        .timeline-section {
+            padding: 100px 10%;
+            background: #f7f1e5;
+        }
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #b87d38;
+            transform: translateX(-50%);
+        }
+
+        .event {
+            width: 50%;
+            padding: 15px 45px;
+            position: relative;
+        }
+
+        .event:nth-child(odd) {
+            text-align: right;
+        }
+
+        .event:nth-child(even) {
+            margin-left: 50%;
+        }
+
+        .event::after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background: #17233c;
+            border: 4px solid #e7b65a;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+            right: -9px;
+        }
+
+        .event:nth-child(even)::after {
+            left: -7px;
+        }
+
+        .year {
+            font-family: 'Space Mono', monospace;
+            color: #b87d38;
+            font-weight: bold;
+        }
+
+        .event h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 25px;
+        }
+
+        /* ---------------- GALLERY ---------------- */
+
+        .gallery-section {
+            background: #17233c;
+            padding: 90px 10%;
+            color: white;
+        }
+
+        .gallery-section .section-heading h2 {
+            color: white;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 25px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #fffaf0;
+            background: #fffaf0;
+        }
+
+        .gallery-card:first-child {
+            height: 420px;
+        }
+
+        .gallery-card:last-child {
+            height: 300px;
+            margin-top: 80px;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(23,35,60,0.9);
+            padding: 14px;
+            font-size: 13px;
+        }
+
+        /* ---------------- QUOTE ---------------- */
+
+        .quote-section {
+            padding: 100px 10%;
+            text-align: center;
+            background: #fffaf0;
+        }
+
+        .quote-mark {
+            font-family: 'DM Serif Display', serif;
+            font-size: 100px;
+            color: #e7b65a;
+            height: 80px;
+        }
+
+        blockquote {
+            max-width: 800px;
+            margin: auto;
+            font-family: 'DM Serif Display', serif;
+            font-size: 35px;
+            line-height: 1.4;
+        }
+
+        .quote-author {
+            margin-top: 25px;
+            font-family: 'Space Mono', monospace;
+            color: #b87d38;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+
+        footer {
+            background: #10192b;
+            color: #bfc5d0;
+            text-align: center;
+            padding: 35px;
+        }
+
+        footer strong {
+            color: #e7b65a;
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+
+        @media (max-width: 850px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding: 60px 8%;
+                min-height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-image {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin: 50px auto 20px;
+                width: 280px;
+                height: 360px;
+            }
+
+            .intro {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .qualities {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-card:first-child,
+            .gallery-card:last-child {
+                height: 350px;
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .qualities {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .intro-title h2 {
+                font-size: 42px;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .event,
+            .event:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-left: 40px;
+                text-align: left;
+            }
+
+            .event::after,
+            .event:nth-child(even)::after {
+                left: 1px;
+            }
+
+            blockquote {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">RAMANUJAN.</div>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#qualities">Qualities</a>
+            <a href="#journey">Journey</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A Tribute to a Mathematical Genius
+            </div>
+
+            <h1>
+                Srinivasa<br>
+                <span>Ramanujan</span>
+            </h1>
+
+            <p>
+                "An extraordinary mind that found beauty where others
+                saw only numbers."
+            </p>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Srinivasa_Ramanujan_-_OPC_-_1.jpg"
+                alt="Srinivasa Ramanujan">
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="intro" id="about">
+
+        <div class="intro-title">
+
+            <div class="number">01</div>
+
+            <h2>
+                A Mind<br>
+                Beyond<br>
+                Numbers.
+            </h2>
+
+        </div>
+
+        <div class="intro-text">
+
+            <p>
+                <strong>Srinivasa Ramanujan</strong> was one of the most
+                remarkable mathematicians in history. Born on 22 December
+                1887 in Erode, India, he developed a deep fascination with
+                mathematics from an early age.
+            </p>
+
+            <p>
+                What makes his story extraordinary is that he learned much
+                of advanced mathematics independently. Without the advantages
+                of extensive formal training, he produced remarkable
+                mathematical discoveries involving number theory, infinite
+                series, continued fractions and mathematical analysis.
+            </p>
+
+            <p>
+                His mathematical talent eventually brought him to Cambridge,
+                where he worked with the renowned mathematician
+                <strong>G. H. Hardy</strong>. His ideas continue to influence
+                mathematics more than a century later.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUALITIES -->
+    <section class="qualities-section" id="qualities">
+
+        <div class="section-heading">
+
+            <span>02 — CHARACTER</span>
+
+            <h2>Qualities I Admire</h2>
+
+        </div>
+
+        <div class="qualities">
+
+            <div class="quality-card">
+                <div class="quality-number">01</div>
+                <h3>Curiosity</h3>
+                <p>
+                    Ramanujan constantly questioned how numbers worked and
+                    explored mathematical ideas with remarkable curiosity.
+                </p>
+            </div>
+
+            <div class="quality-card">
+                <div class="quality-number">02</div>
+                <h3>Determination</h3>
+                <p>
+                    Difficult circumstances never stopped him from pursuing
+                    his passion for mathematics.
+                </p>
+            </div>
+
+            <div class="quality-card">
+                <div class="quality-number">03</div>
+                <h3>Creativity</h3>
+                <p>
+                    He approached mathematics in an unusual and highly
+                    creative way, discovering unexpected patterns.
+                </p>
+            </div>
+
+            <div class="quality-card">
+                <div class="quality-number">04</div>
+                <h3>Self-Learning</h3>
+                <p>
+                    Much of his mathematical knowledge came from independent
+                    study, showing the power of learning on one's own.
+                </p>
+            </div>
+
+            <div class="quality-card">
+                <div class="quality-number">05</div>
+                <h3>Passion</h3>
+                <p>
+                    Mathematics was more than a subject to him—it was a
+                    lifelong passion.
+                </p>
+            </div>
+
+            <div class="quality-card">
+                <div class="quality-number">06</div>
+                <h3>Inspiration</h3>
+                <p>
+                    His life continues to encourage students to believe in
+                    their abilities and follow their interests.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MATHEMATICAL BANNER -->
+    <section class="math-banner">
+
+        <div class="equation">
+            1 + 2 + 3 + 4 + ··· = −1/12
+        </div>
+
+        <p>
+            Ramanujan's work revealed that mathematics could be surprising,
+            beautiful and full of mysteries that challenged conventional
+            thinking.
+        </p>
+
+    </section>
+
+
+    <!-- TIMELINE -->
+    <section class="timeline-section" id="journey">
+
+        <div class="section-heading">
+
+            <span>03 — TIMELINE</span>
+
+            <h2>His Remarkable Journey</h2>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="event">
+                <div class="year">1887</div>
+                <h3>Born in India</h3>
+                <p>
+                    Srinivasa Ramanujan was born on 22 December in Erode,
+                    in the Madras Presidency of British India.
+                </p>
+            </div>
+
+            <div class="event">
+                <div class="year">1903</div>
+                <h3>Mathematical Passion</h3>
+                <p>
+                    As a teenager, he became deeply absorbed in advanced
+                    mathematics and began exploring it independently.
+                </p>
+            </div>
+
+            <div class="event">
+                <div class="year">1913</div>
+                <h3>The Letter to Hardy</h3>
+                <p>
+                    Ramanujan sent his mathematical work to G. H. Hardy
+                    at Cambridge, changing the course of his life.
+                </p>
+            </div>
+
+            <div class="event">
+                <div class="year">1914</div>
+                <h3>Cambridge</h3>
+                <p>
+                    He travelled to England and began his famous
+                    collaboration with G. H. Hardy.
+                </p>
+            </div>
+
+            <div class="event">
+                <div class="year">1918</div>
+                <h3>Royal Society</h3>
+                <p>
+                    Ramanujan was elected a Fellow of the Royal Society,
+                    a remarkable achievement for a mathematician so young.
+                </p>
+            </div>
+
+            <div class="event">
+                <div class="year">1920</div>
+                <h3>His Legacy Begins</h3>
+                <p>
+                    Ramanujan died on 26 April at the age of 32, leaving
+                    behind mathematical ideas that continue to be studied.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+
+        <div class="quote-mark">“</div>
+
+        <blockquote>
+            An equation for me has no meaning unless it expresses a thought
+            of God.
+        </blockquote>
+
+        <div class="quote-author">
+            — Srinivasa Ramanujan
+        </div>
+
+    </section>
+
+
+    <!-- GALLERY -->
+    <section class="gallery-section" id="gallery">
+
+        <div class="section-heading">
+
+            <span>04 — MEMORIES</span>
+
+            <h2>Remembering Ramanujan</h2>
+
+        </div>
+
+        <div class="gallery">
+
+            <!-- IMAGE 1: Reliable Ramanujan portrait -->
+            <div class="gallery-card">
+
+                <img
+                    src="https://tse1.mm.bing.net/th/id/OIP.5uMrH90BKukJBqiRhdAU-QHaFj?r=0&pid=Api&P=0&h=180"
+                    alt="Srinivasa Ramanujan portrait">
+
+                <div class="gallery-caption">
+                    Srinivasa Ramanujan — one of India's greatest mathematicians
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE 2: Use the same reliable image with a different crop -->
+            <div class="gallery-card">
+
+                <img
+                    src="https://tse3.mm.bing.net/th/id/OIP.AwcbI-NOibgw82yh0lR7tAHaHa?r=0&pid=Api&P=0&h=180"
+                    alt="Srinivasa Ramanujan">
+
+                <div class="gallery-caption">
+                    A mathematical genius remembered across generations
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            Created with <strong>admiration</strong> for Srinivasa Ramanujan.
+        </p>
+
+        <p>
+            His numbers ended, but his ideas never will.
+        </p>
+
+    </footer>
+
+</body>
+</html>
